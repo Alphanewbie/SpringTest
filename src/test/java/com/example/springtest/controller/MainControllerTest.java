@@ -1,4 +1,4 @@
-package com.example.springtest.web;
+package com.example.springtest.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,14 +10,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -33,19 +31,19 @@ public class MainControllerTest {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-//    @Test
-//    public void return_hello() throws Exception {
-//        Map<String, String> testAnswer = new HashMap<>();
-//
-//        testAnswer.put("message", "hello");
-//
-//        String testString = mapper.writeValueAsString(testAnswer);
-//
-//        mvc.perform(MockMvcRequestBuilders.get(requestMapping + "/hello"))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.content().json(testString));
-//
-//    }
+    @Test
+    public void return_hello() throws Exception {
+        Map<String, String> testAnswer = new HashMap<>();
+
+        testAnswer.put("message", "hello");
+
+        String testString = mapper.writeValueAsString(testAnswer);
+
+        mvc.perform(MockMvcRequestBuilders.get(requestMapping + "/hello"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(testString));
+
+    }
 
     @Test
     public void return_hello2() throws Exception {
